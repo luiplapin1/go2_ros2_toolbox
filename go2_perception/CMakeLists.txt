@@ -49,7 +49,13 @@ rclcpp_components_register_node(pointcloud_to_laserscan
   PLUGIN "pointcloud_to_laserscan::PointCloudToLaserScanNode"
   EXECUTABLE pointcloud_to_laserscan_node)
 
-  add_executable(cloud_accumulation
+install(TARGETS
+  pointcloud_to_laserscan
+  RUNTIME DESTINATION lib
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib)
+
+add_executable(cloud_accumulation
   src/cloud_accumulation.cpp
 )
 ament_target_dependencies(cloud_accumulation

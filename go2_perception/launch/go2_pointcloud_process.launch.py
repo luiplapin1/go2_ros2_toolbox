@@ -7,7 +7,7 @@ def generate_launch_description():
         Node(
             package='go2_perception', executable='cloud_accumulation',
             remappings=[
-                ('scan', '/trans_scan')
+                ('cloud', '/trans_cloud')
                 ],
             name='cloud_accumulation'
         ),
@@ -31,6 +31,6 @@ def generate_launch_description():
                 'use_inf': True,
                 'inf_epsilon': 1.0
             }],
-            name='pointcloud_to_laserscan'
+            name='pointcloud_to_laserscan_node'
         )
     ])
