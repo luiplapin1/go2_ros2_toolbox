@@ -18,9 +18,9 @@
 
 using namespace std::chrono_literals;
 
-class DogController : public rclcpp::Node {
+class Go2Base : public rclcpp::Node {
 public:
-    DogController() : Node("dog_controller") {
+    Go2Base() : Node("go2_base") {
         // 初始化运动客户端
         sport_client_ = std::make_shared<SportClient>();
         
@@ -115,7 +115,7 @@ private:
 
 int main(int argc, char** argv) {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<DogController>());
+    rclcpp::spin(std::make_shared<Go2Base>());
     rclcpp::shutdown();
     return 0;
 } 

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(go2_core)
+project(go2_perception)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -17,18 +17,6 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(ament_cmake_python REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(rclpy REQUIRED)
-find_package(unitree_api REQUIRED)
-find_package(go2_sport_api REQUIRED)
-find_package(sensor_msgs REQUIRED)
-find_package(cv_bridge REQUIRED)
-find_package(geometry_msgs REQUIRED)
-find_package(tf2_ros REQUIRED)
-find_package(nav_msgs REQUIRED)
-find_package(tf2 REQUIRED)
-
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -43,40 +31,5 @@ if(BUILD_TESTING)
   #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
-# 安装Python模块
-ament_python_install_package(${PROJECT_NAME})
-
-
-include_directories(
-  include
-  ../unitree_pkgs/go2_sport_api/include
-)
-
-add_executable(go2_base src/go2_base.cpp)
-ament_target_dependencies(go2_base
-  rclcpp
-  unitree_api
-  go2_sport_api
-  geometry_msgs
-  tf2_ros
-  nav_msgs
-  tf2
-)
-
-install(TARGETS
-  go2_base
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(
-  DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}
-)
-
-install(
-  DIRECTORY config
-  DESTINATION share/${PROJECT_NAME}
-)
 
 ament_package()
