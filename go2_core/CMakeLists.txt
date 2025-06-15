@@ -70,6 +70,11 @@ install(
 )
 
 install(
+  PROGRAMS go2_core/video_stream_node.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
   DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )

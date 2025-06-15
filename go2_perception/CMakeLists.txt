@@ -68,6 +68,10 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+install(
+  DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+)
 
 # 安装Python模块
 ament_python_install_package(${PROJECT_NAME})

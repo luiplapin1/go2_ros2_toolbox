@@ -5,14 +5,14 @@ from launch_ros.actions import Node
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package='pointcloud_to_laserscan', executable='cloud_accumulation',
+            package='go2_perception', executable='cloud_accumulation',
             remappings=[
                 ('scan', '/trans_scan')
                 ],
             name='cloud_accumulation'
         ),
         Node(
-            package='pointcloud_to_laserscan', executable='pointcloud_to_laserscan_node',
+            package='go2_perception', executable='pointcloud_to_laserscan_node',
             remappings=[
                 ('cloud_in', '/trans_cloud'), 
                 ('scan', '/scan')
