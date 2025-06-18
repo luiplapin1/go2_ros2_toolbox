@@ -1,31 +1,138 @@
-# go2_ros2_toolbox
+# Go2 ROS2 Toolbox
 
-A (unofficial) toolbox for Unitree Go2 in SLAM and navigation (maybe more later)
+[![ROS2](https://img.shields.io/badge/ROS2-Foxy-green.svg)](https://docs.ros.org/en/foxy/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Ubuntu%2020.04-orange.svg)](https://ubuntu.com/)
+
+A comprehensive ROS2 toolbox for Unitree Go2 EDU robot, providing SLAM and navigation capabilities for autonomous operation.
 
 <div align="center">
-  <img src="asset/demo.gif" alt="Go2 ROS2 Toolbox Demo" width="100%">
+  <img src="asset/demo.gif" alt="Go2 ROS2 Toolbox Demo" width="100%" style="background-color: #1a1a1a;">
 </div>
 
-# Features
+## 🚀 Features
 
-- LiDAR Message in ROS & Point Cloud Accumulation
-- Camera Gstream Capture
-- SLAM Toolbox
-- Navigation2
+- **LiDAR Integration**: Real-time point cloud processing and accumulation
+- **Camera Support**: GStreamer-based camera capture and streaming
+- **SLAM Capabilities**: Integration with SLAM Toolbox for mapping
+- **Navigation Stack**: Full Navigation2 integration for autonomous navigation
+- **ROS2 Native**: Built specifically for ROS2 Foxy ecosystem
 
-# Installation
+## 📋 Prerequisites
+
+This toolbox is developed and tested on Unitree Go2 EDU with the expansion dock environment:
+- **OS**: Ubuntu 20.04
+- **ROS2**: Foxy
+- **Firmware**: v1.1.7 (tested)
+
+## 🛠️ Installation
+
+### 1. Install Official Unitree ROS2 Package
+
+First, install the official Unitree ROS2 package:
+```bash
+# Follow the official installation guide
+# https://github.com/unitreerobotics/unitree_ros2
+```
+
+### 2. Install Dependencies
+
+#### ROS2 Packages
+```bash
+sudo apt-get install ros-foxy-navigation2 \
+                     ros-foxy-nav2-bringup \
+                     ros-foxy-pcl-ros \
+                     ros-foxy-tf-transformations \
+                     ros-foxy-slam-toolbox
+```
+
+#### Python Packages
+```bash
+pip3 install transforms3d
+```
+
+### 3. Build the Workspace
 
 ```bash
+# Create workspace
 mkdir -p go2_ros2_ws/src
 cd go2_ros2_ws/src
+
+# Clone repository
 git clone https://github.com/andy-zhuo-02/go2_ros2_toolbox.git
+
+# Build
 cd ..
 colcon build
 ```
 
-# Usage
+## 🎯 Usage
+
+### Quick Start
 
 ```bash
+# Source the workspace
 source install/setup.bash
+
+# Launch the robot
 ros2 launch go2_core go2_startup.launch.py
 ```
+
+### SLAM Operations
+
+- **Map Serialization**: Save generated maps for later use
+- **Map Deserialization**: Load previously saved maps
+
+### Navigation
+
+1. Open RViz2
+2. Select the 'Navigation2 Goal' button
+3. Click on the map to set navigation goals
+4. Drag to adjust the target orientation
+
+## 🔧 Development (Not Finished Yet)
+
+### Frame Reference
+
+| Frame | Description | Source |
+|-------|-------------|---------|
+| `/odom` | Odometry frame | Unitree Go2 odometry topic |
+| `/map` | Map frame | SLAM Toolbox |
+| `/base_link` | Base link frame | Unitree Go2 base link topic |
+
+### ROS Topics
+
+| Component | Topic | Type | Frame |
+|-----------|-------|------|-------|
+| LiDAR (Unitree) | `/unitree_lidar/cloud_deskewed` | PointCloud2 | `/odom` |
+| LiDAR (Accumulated) | `/lidar_points` | PointCloud2 | `/odom` |
+| Camera Image | `/camera/image_raw` | Image | - |
+
+## 🤝 Contributing
+
+We welcome contributions! Please feel free to submit issues and pull requests.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Unitree Robotics for the Go2 EDU platform
+- ROS2 community for the excellent navigation and SLAM tools
+- Contributors and users of this toolbox
+
+## 📞 Support
+
+If you encounter any issues or have questions, please:
+1. Check the [Issues](https://github.com/andy-zhuo-02/go2_ros2_toolbox/issues) page
+2. Create a new issue with detailed information
+3. Include system information and error logs
+
+---
+
+**Note**: This is an unofficial toolbox and is not affiliated with Unitree Robotics.
+
+
+
+
