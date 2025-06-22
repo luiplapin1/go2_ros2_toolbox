@@ -21,6 +21,7 @@ A comprehensive ROS2 toolbox for Unitree Go2 EDU robot, providing SLAM and navig
 ## 📋 Prerequisites
 
 This toolbox is developed and tested on Unitree Go2 EDU with the expansion dock environment:
+
 - **OS**: Ubuntu 20.04
 - **ROS2**: Foxy
 - **Firmware**: v1.1.7 (tested)
@@ -30,6 +31,7 @@ This toolbox is developed and tested on Unitree Go2 EDU with the expansion dock 
 ### 1. Install Official Unitree ROS2 Package
 
 First, install the official Unitree ROS2 package:
+
 ```bash
 # Follow the official installation guide
 # https://github.com/unitreerobotics/unitree_ros2
@@ -38,6 +40,7 @@ First, install the official Unitree ROS2 package:
 ### 2. Install Dependencies
 
 #### ROS2 Packages
+
 ```bash
 sudo apt-get install ros-foxy-navigation2 \
                      ros-foxy-nav2-bringup \
@@ -47,6 +50,7 @@ sudo apt-get install ros-foxy-navigation2 \
 ```
 
 #### Python Packages
+
 ```bash
 pip3 install transforms3d
 ```
@@ -90,23 +94,23 @@ ros2 launch go2_core go2_startup.launch.py
 3. Click on the map to set navigation goals
 4. Drag to adjust the target orientation
 
-## 🔧 Development (Not Finished Yet)
+## 🔧 Development
 
 ### Frame Reference
 
-| Frame | Description | Source |
-|-------|-------------|---------|
-| `/odom` | Odometry frame | Unitree Go2 odometry topic |
-| `/map` | Map frame | SLAM Toolbox |
-| `/base_link` | Base link frame | Unitree Go2 base link topic |
+| Frame          | Description     | Source                      |
+| -------------- | --------------- | --------------------------- |
+| `/odom`      | Odometry frame  | Unitree Go2 odometry topic  |
+| `/map`       | Map frame       | SLAM Toolbox                |
+| `/base_link` | Base link frame | Unitree Go2 odometry topic |
 
 ### ROS Topics
 
-| Component | Topic | Type | Frame |
-|-----------|-------|------|-------|
-| LiDAR (Unitree) | `/unitree_lidar/cloud_deskewed` | PointCloud2 | `/odom` |
-| LiDAR (Accumulated) | `/lidar_points` | PointCloud2 | `/odom` |
-| Camera Image | `/camera/image_raw` | Image | - |
+| Component           | Topic                             | Type        | Frame     |
+| ------------------- | --------------------------------- | ----------- | --------- |
+| LiDAR (Unitree)     | `/unitree_lidar/cloud_deskewed` | PointCloud2 | `/odom` |
+| LiDAR (Accumulated) | `/trans_cloud`                  | PointCloud2 | `/odom` |
+| Camera Image        | `/camera/image_raw`             | Image       | -         |
 
 ## 🤝 Contributing
 
@@ -125,6 +129,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 If you encounter any issues or have questions, please:
+
 1. Check the [Issues](https://github.com/andy-zhuo-02/go2_ros2_toolbox/issues) page
 2. Create a new issue with detailed information
 3. Include system information and error logs
@@ -132,7 +137,3 @@ If you encounter any issues or have questions, please:
 ---
 
 **Note**: This is an unofficial toolbox and is not affiliated with Unitree Robotics.
-
-
-
-
