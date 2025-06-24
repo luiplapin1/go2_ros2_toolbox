@@ -108,7 +108,7 @@ ros2 launch go2_core go2_startup.launch.py
 
 | Component           | Topic                             | Type        | Frame     |
 | ------------------- | --------------------------------- | ----------- | --------- |
-| LiDAR (Unitree)     | `/unitree_lidar/cloud_deskewed` | PointCloud2 | `/odom` |
+| LiDAR (Unitree)     | `/utlidar/cloud_deskewed` | PointCloud2 | `/odom` |
 | LiDAR (Accumulated) | `/trans_cloud`                  | PointCloud2 | `/odom` |
 | Camera Image        | `/camera/image_raw`             | Image       | -         |
 
