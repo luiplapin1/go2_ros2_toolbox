@@ -20,6 +20,8 @@ A comprehensive ROS2 toolbox for Unitree Go2 EDU robot, providing SLAM and navig
 
 ## 📋 Prerequisites
 
+> **⚠️ Note: The features of this repository have only been tested on the onboard expansion dock computer of Go2 EDU. Compatibility and functionality on other environments (like PC wired to Go2 dock computer) have not been verified.**
+
 This toolbox is developed and tested on Unitree Go2 EDU with the expansion dock environment:
 
 - **OS**: Ubuntu 20.04
