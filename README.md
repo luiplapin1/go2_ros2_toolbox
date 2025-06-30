@@ -204,20 +204,42 @@ ros2 launch go2_core go2_startup.launch.py
 
 ### Frame Reference
 
-| Frame | Description | Source |
-|-------|-------------|---------|
-| `/odom` | Odometry frame | Unitree Go2 odometry topic |
-| `/map` | Map frame | SLAM Toolbox |
+| Frame          | Description     | Source                      |
+| -------------- | --------------- | --------------------------- |
+| `/odom`      | Odometry frame  | Unitree Go2 odometry topic  |
+| `/map`       | Map frame       | SLAM Toolbox                |
 | `/base_link` | Base link frame | Unitree Go2 odometry topic |
 
----
+### ROS Topics
+
+| Component           | Topic                             | Type        | Frame     |
+| ------------------- | --------------------------------- | ----------- | --------- |
+| LiDAR (Unitree)     | `/utlidar/cloud_deskewed` | PointCloud2 | `/odom` |
+| LiDAR (Accumulated) | `/trans_cloud`                  | PointCloud2 | `/odom` |
+| Camera Image        | `/camera/image_raw`             | Image       | -         |
+
+## 🤝 Contributing
+
+We welcome contributions! Please feel free to submit issues and pull requests.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- Original repository author: andy-zhuo-02
 - Unitree Robotics for the Go2 EDU platform
-- ROS2 community for Navigation2 and SLAM Toolbox
+- ROS2 community for the excellent navigation and SLAM tools
+- Contributors and users of this toolbox
 
-This README includes additional instructions tested on Ubuntu 20.04 ARM64.
+## 📞 Support
 
-**Note:** This is an unofficial fork and is not affiliated with Unitree Robotics.
+If you encounter any issues or have questions, please:
+
+1. Check the [Issues](https://github.com/andy-zhuo-02/go2_ros2_toolbox/issues) page
+2. Create a new issue with detailed information
+3. Include system information and error logs
+
+---
+
+**Note**: This is an unofficial toolbox and is not affiliated with Unitree Robotics.
