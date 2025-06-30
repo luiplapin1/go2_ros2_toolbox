@@ -127,7 +127,7 @@ source ~/cartographer_ws/install/setup.bash
 ```bash
 mkdir -p ~/go2_ros2_ws/src
 cd ~/go2_ros2_ws/src
-git clone https://github.com/SteveMacenski/slam_toolbox.git -b foxy
+git clone https://github.com/SteveMacenski/slam_toolbox.git
 ```
 
 Build:
@@ -187,48 +187,18 @@ echo "source ~/go2_ros2_ws/install/setup.bash" >> ~/.bashrc
 ros2 launch go2_core go2_startup.launch.py
 ```
 
-### Launch Navigation2
+### SLAM Operations
 
-```bash
-ros2 launch nav2_bringup bringup_launch.py
-```
+- **Map Serialization**: Save generated maps for later use
+- **Map Deserialization**: Load previously saved maps
 
-### Launch SLAM Toolbox
+### Navigation
 
-For example:
+1. Open RViz2
+2. Select the 'Navigation2 Goal' button
+3. Click on the map to set navigation goals
+4. Drag to adjust the target orientation
 
-```bash
-ros2 launch slam_toolbox online_async_launch.py
-```
-
-### RViz
-
-Open RViz2:
-
-```bash
-rviz2
-```
-
-Add displays for:
-- `/map`
-- `/odom`
-- `/tf`
-- `/scan`
-
----
-
-## ✅ Verification
-
-After sourcing, verify that packages are visible:
-
-```bash
-ros2 pkg list | grep slam_toolbox
-ros2 pkg list | grep nav2_bringup
-```
-
-Both must appear.
-
----
 
 ## 🔧 Development
 
